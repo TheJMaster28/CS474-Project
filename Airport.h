@@ -59,6 +59,6 @@ class Airport{
         Flying.push(runWay);
     }
     
-
+    // Add output method here
 
 }; // end class airport
