@@ -1,20 +1,45 @@
 // Airport.h
 // This file holds the airfield and aircraft classes
 #include <queue>
+#include <string>
+
 using namespace std;
 
 class Airplane{
-    public:
+        public:
         int ID;
+        int takeoffTime;
+        int landingTime;
+        int timesTillDone;
+
 
     Airplane();
 
-    Airplane(int x){
+    Airplane(int x, int y, int z){
         ID = x;
+        takeoffTime = y;
+        landingTime = z;
     }
 
     int getAirplaneID(){
         return ID;
+    }
+
+    int getTakeoffTime(){
+        return takeoffTime;
+    }
+    
+    int getLandingTime(){
+        return landingTime;
+    }
+
+    int getTimesLanded(){
+        return timesTillDone;
+    }
+
+    string toString(){
+        string output = "Temp";
+        return output;
     }
 };
 
