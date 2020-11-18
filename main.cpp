@@ -3,6 +3,7 @@
 #include <thread>
 
 #include "Semaphore.h"
+#include "Airport.h"
 using namespace std;
 
 mutex mu;
@@ -88,4 +89,9 @@ int main() {
     con.join();
 
     cout << "Finshed" << endl;
+
+    Airport airport1;
+    airport1.populateHanger(4);
+    airport1.populateFlying(2);
+    airport1.printStatus();
 }
