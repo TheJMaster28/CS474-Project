@@ -119,7 +119,7 @@ class Airport {
     bool checkIfPlaneInAirIsLanding() {
         Airplane planeInAir = Flying.front();
         Airplane planeAboutToTakeOff = Hanger.front();
-        if (planeInAir.getLandingTime() >= planeAboutToTakeOff.getTakeoffTime()) {
+        if (planeInAir.getLandingTime() <= planeAboutToTakeOff.getTakeoffTime()) {
             return true;
         }
         return false;
