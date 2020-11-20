@@ -3,145 +3,181 @@
 
 // Libraries
 #include <queue>
-#include <string>
 #include <random>
+#include <string>
 
 using namespace std;
 
 // Class Airplane
-class Airplane{
-    
+class Airplane {
     // Public variables
-    public:
-        int ID;
-        int takeoffTime;
-        int landingTime;
-        int timesTillDone;
+   public:
+    int ID;
+    int takeoffTime;
+    int landingTime;
+    int timesTillDone;
 
     // Default constructor
     Airplane(){};
 
     // Parameterized constructor
-    Airplane(int x, int y, int z, int a){
+    Airplane(int x, int y, int z, int a) {
         ID = x;
         takeoffTime = y;
         landingTime = z;
         timesTillDone = a;
     }
 
-    int getAirplaneID(){
+    int getAirplaneID() {
         return ID;
     }
 
-    int getTakeoffTime(){
+    int getTakeoffTime() {
         return takeoffTime;
     }
-    
-    int getLandingTime(){
+
+    int getLandingTime() {
         return landingTime;
     }
 
-    int getTimesLanded(){
+    int getTimesLanded() {
         return timesTillDone;
     }
 
-    string toString(){
+    string toString() {
         string output = "Temp";
         return output;
     }
 
-}; // end class Airplane
+};  // end class Airplane
 
 // Class Airport
-class Airport{
-
+class Airport {
     // Public variables
-    public:
-        queue<Airplane> Hanger;
-        queue<Airplane> Flying;
-        queue<Airplane> tempHanger;
-        queue<Airplane> tempFlying;
-        Airplane runWay;
-	    Airplane planeInfoH;
-        Airplane planeInfoF;
+   public:
+    queue<Airplane> Hanger;
+    queue<Airplane> Flying;
+    queue<Airplane> tempHanger;
+    queue<Airplane> tempFlying;
+    Airplane runWay;
+    Airplane planeInfoH;
+    Airplane planeInfoF;
 
     // Default constructor
     Airport(){};
 
     // Add 'n' number of aircrafts to the Hanger queue
-    void populateHanger(int n){
-        for ( int i = 1; i <= n; i++){
-            Hanger.push(Airplane(i, i+10, i+20, 1));
+    void populateHanger(int n) {
+        for (int i = 1; i <= n; i++) {
+            Hanger.push(Airplane(i, i + 10, i + 20, 1));
         }
     }
 
     // Add 'n' number of aircrafts to the Flying queue
-    void populateFlying(int n){
-        for ( int i = 1; i <= n; i++){
-            Flying.push(Airplane(i, i+30, i+40, 1));
+    void populateFlying(int n) {
+        for (int i = 1; i <= n; i++) {
+            Flying.push(Airplane(i, i + 30, i + 40, 1));
         }
     }
 
     // Airplane landing method
     // Removes the top airplane of the flying queue and adds it to the end of the Flying queue
-    void airplaneLanding(){
+    void airplaneLanding() {
         runWay = Flying.front();
         Flying.pop();
-        Hanger.push(runWay);
+        runWay.timesTillDone--;
+        if (runWay.timesTillDone != 0) {
+            Hanger.push(runWay);
+        }
     }
 
     // Airplane takingOff method
     // Removes the top airplane of the Hanger queue and adds it to the end of the Flying queue
-    void airplaneTakingOff(){
+    void airplaneTakingOff() {
         runWay = Hanger.front();
         Hanger.pop();
         Flying.push(runWay);
     }
-    
+
+    // Method to check if there are any planes in the Hanger
+    bool checkAnyPlanesInHanger() {
+        if (Hanger.empty()) {
+            return false;
+        }
+        return true;
+    }
+
+    // Method to check if there are any planes Flying
+    bool checkAnyPlanesInAir() {
+        if (Flying.empty()) {
+            return false;
+        }
+        return true;
+    }
+
+    // Method to see if a plane in the air will be landing will land before a plane in the hanger will take off
+    bool checkIfPlaneInAirIsLanding() {
+        Airplane planeInAir = Flying.front();
+        Airplane planeAboutToTakeOff = Hanger.front();
+        if (planeInAir.getLandingTime() >= planeAboutToTakeOff.getTakeoffTime()) {
+            return true;
+        }
+        return false;
+    }
+
     // printStatus method
     // Prints all of the information for each airplane in the Hanger anf Flying queue
-    void printStatus(){
-        
+    void printStatus() {
         //Copying over the queues
         tempHanger = Hanger;
         tempFlying = Flying;
 
         // Printing how many airplanes are in the hanger and flying
-        cout << "Airplanes inside the Hanger: " << tempHanger.size() << "             " << "Airplanes in the Air: " << tempFlying.size() << "\n\n";
-        while( !tempHanger.empty() || !tempFlying.empty()){
-            
+        cout << "Airplanes inside the Hanger: " << tempHanger.size() << "             "
+             << "Airplanes in the Air: " << tempFlying.size() << "\n\n";
+        while (!tempHanger.empty() || !tempFlying.empty()) {
             planeInfoH = tempHanger.front();
             planeInfoF = tempFlying.front();
-            
+
             // If both queues are not empty
-            if( !tempHanger.empty() && !tempFlying.empty()){
-            cout << "Airplane ID: " << planeInfoH.ID << "                             " << "Airplane ID: " << planeInfoF.ID << "\n";
-            cout << "Airplane Takeoff Time: " << planeInfoH.takeoffTime << "                  " << "Airplane Takeoff Time: " << planeInfoF.takeoffTime << "\n";
-            cout << "Airplane Landing Time: " << planeInfoH.landingTime << "                  " << "Airplane Landing Time: " << planeInfoF.landingTime <<"\n";
-            cout << "Airplane Rounds Left: " << planeInfoH.timesTillDone << "                    " << "Airplane Rounds Left: " << planeInfoF.timesTillDone <<"\n";
-            cout << "----------------------------------------------------------------------------------------------------------------------------------------" << "\n";
+            if (!tempHanger.empty() && !tempFlying.empty()) {
+                cout << "Airplane ID: " << planeInfoH.ID << "                             "
+                     << "Airplane ID: " << planeInfoF.ID << "\n";
+                cout << "Airplane Takeoff Time: " << planeInfoH.takeoffTime << "                  "
+                     << "Airplane Takeoff Time: " << planeInfoF.takeoffTime << "\n";
+                cout << "Airplane Landing Time: " << planeInfoH.landingTime << "                  "
+                     << "Airplane Landing Time: " << planeInfoF.landingTime << "\n";
+                cout << "Airplane Rounds Left: " << planeInfoH.timesTillDone << "                    "
+                     << "Airplane Rounds Left: " << planeInfoF.timesTillDone << "\n";
+                cout << "----------------------------------------------------------------------------------------------------------------------------------------"
+                     << "\n";
             }
             // If the hanger queue is empty
-            else if (tempHanger.empty()){
-            cout << "                                           " << "Airplane ID: " << planeInfoF.ID << "\n";
-            cout << "                                           " << "Airplane Takeoff Time: " << planeInfoF.takeoffTime << "\n";
-            cout << "                                           " << "Airplane Landing Time: " << planeInfoF.landingTime <<"\n";
-            cout << "                                           " << "Airplane Rounds Left: " << planeInfoF.timesTillDone <<"\n";
-            cout << "----------------------------------------------------------------------------------------------------------------------------------------" << "\n";
+            else if (tempHanger.empty()) {
+                cout << "                                           "
+                     << "Airplane ID: " << planeInfoF.ID << "\n";
+                cout << "                                           "
+                     << "Airplane Takeoff Time: " << planeInfoF.takeoffTime << "\n";
+                cout << "                                           "
+                     << "Airplane Landing Time: " << planeInfoF.landingTime << "\n";
+                cout << "                                           "
+                     << "Airplane Rounds Left: " << planeInfoF.timesTillDone << "\n";
+                cout << "----------------------------------------------------------------------------------------------------------------------------------------"
+                     << "\n";
             }
             // If flying queue is empty
-            else{
-            cout << "Airplane ID: " << planeInfoH.ID << "\n";
-            cout << "Airplane Takeoff Time: " << planeInfoH.takeoffTime << "\n";
-            cout << "Airplane Landing Time: " << planeInfoH.landingTime << "\n";
-            cout << "Airplane Rounds Left: " << planeInfoH.timesTillDone <<"\n";
-            cout << "----------------------------------------------------------------------------------------------------------------------------------------" << "\n";
+            else {
+                cout << "Airplane ID: " << planeInfoH.ID << "\n";
+                cout << "Airplane Takeoff Time: " << planeInfoH.takeoffTime << "\n";
+                cout << "Airplane Landing Time: " << planeInfoH.landingTime << "\n";
+                cout << "Airplane Rounds Left: " << planeInfoH.timesTillDone << "\n";
+                cout << "----------------------------------------------------------------------------------------------------------------------------------------"
+                     << "\n";
             }
 
-            if( !tempHanger.empty() ) tempHanger.pop();
-            if( !tempFlying.empty() ) tempFlying.pop();
-
+            if (!tempHanger.empty()) tempHanger.pop();
+            if (!tempFlying.empty()) tempFlying.pop();
         }
-     }
+    }
 
-}; // end class Airport
+};  // end class Airport
