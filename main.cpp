@@ -11,7 +11,7 @@ mutex mu;
 mutex land;
 mutex takeoff;
 
-void take_off(Airport a) {
+void take_off(Airport &a) {
     bool exit = false;
     while (true) {
         // need to have where a planes lands, a plane takes off
@@ -46,13 +46,12 @@ void take_off(Airport a) {
 }
 
 int main() {
-
     Airport airport1;
     airport1.populateHanger(4);
     airport1.populateFlying(2);
     airport1.printStatus();
 
-    thread take_off_thread(take_off, airport1);
+    thread take_off_thread(take_off, ref(airport1));
 
     take_off_thread.join();
 
