@@ -1,25 +1,29 @@
+// Libraries
 #include <chrono>
 #include <iostream>
 #include <mutex>
 #include <thread>
 
 #include "Airport.h"
-#include "Semaphore.h"
+
 using namespace std;
 
+// mutal exclusion semaphore
 mutex mu;
+// semaphores for having takeoff and landing threads alternate
 mutex land;
 mutex takeoff;
 
 void take_off(Airport &a) {
     bool exit = false;
     while (true) {
-        // need to have where a planes lands, a plane takes off
+        // Have planes takeoff after a plane has landed
         takeoff.lock();
+        // mutual exclusion of crit section
         mu.lock();
 
-        // critical section
-        // check if a plne is in Hanger queue and check if plane in the air is not going to land while plane is taking off
+        // crit section
+        // check if a plne is in Hanger
         if (a.checkAnyPlanesInHanger()) {
             // take off first plane in Hanger queue
             a.airplaneTakingOff();
@@ -31,6 +35,7 @@ void take_off(Airport &a) {
             // have thread wait in milliseconds for plane takeing off
             chrono::seconds timespan(a.runWay.getRunwayTime());
             this_thread::sleep_for(timespan);
+            // print status of Airport
             a.printStatus();
         }
 
@@ -38,9 +43,12 @@ void take_off(Airport &a) {
         if (!a.checkAnyPlanesInHanger() && !a.checkAnyPlanesInAir()) {
             exit = true;
         }
+        // mutual exclusion of crit section
         mu.unlock();
+        // let airplanes land
         land.unlock();
 
+        // exit loop to terminate thread
         if (exit) {
             break;
         }
@@ -50,11 +58,12 @@ void take_off(Airport &a) {
 void landing(Airport &a) {
     bool exit = false;
     while (true) {
-        // locking landing
+        // Have planes land after a plane has taken off
         land.lock();
+        // mutual exclusion of crit section
         mu.lock();
 
-        // check flying time
+        // sleep on flying time
         cout << endl
              << endl
              << "~~~Airplane " << a.Flying.front().getAirplaneID() << " is flying~~~" << endl;
@@ -74,17 +83,21 @@ void landing(Airport &a) {
             // Runway time
             chrono::seconds timespan(a.runWay.getRunwayTime());
             this_thread::sleep_for(timespan);
+            // print status of Airport
             a.printStatus();
         }
 
-        // checking planes in air and in hanges
+        // checking planes in air and in hanger
         if (!a.checkAnyPlanesInHanger() && !a.checkAnyPlanesInAir()) {
             exit = true;
         }
 
+        // mutual exclusion of crit section
         mu.unlock();
+        // let planes takeoff after landing
         takeoff.unlock();
 
+        // exit loop to terminate thread
         if (exit) {
             break;
         }
@@ -92,17 +105,21 @@ void landing(Airport &a) {
 }
 
 int main() {
-    Airport airport1;
-    // airport1.populateHanger(4);
-    // airport1.populateFlying(2);
-    airport1.populateAirplanes(10);
+    // make global object airport for threads to share
+    static Airport airport1;
+    // populate Airport
+    airport1.populateAirplanes(5);
     airport1.printStatus();
+    // set mutex to have landing go first
     takeoff.lock();
+
+    // create threads with the shared object airport
     thread take_off_thread(take_off, ref(airport1));
     thread landing_thread(landing, ref(airport1));
 
+    // wait for threads to be done
     take_off_thread.join();
     landing_thread.join();
 
-    cout << "Finshed" << endl;
+    cout << "Done With Airport" << endl;
 }
