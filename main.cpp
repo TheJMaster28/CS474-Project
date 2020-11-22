@@ -48,14 +48,14 @@ void take_off(Airport &a) {
 
 void landing(Airport &a) {
     bool exit = false;
-    while(true) {
+    while (true) {
         // locking landing
         land.lock();
         mu.lock();
 
         // crit section
         //checks if there is a plane in the air
-        if(a.checkAnyPlanesInAir()){
+        if (a.checkAnyPlanesInAir()) {
             a.airplaneLanding();
             // Indicating which plane landed
             cout << endl
@@ -69,24 +69,24 @@ void landing(Airport &a) {
         }
 
         // checking planes in air and in hanges
-        if(!a.checkAnyPlanesInHanger() && !a.checkAnyPlanesInAir()) {
+        if (!a.checkAnyPlanesInHanger() && !a.checkAnyPlanesInAir()) {
             exit = true;
         }
 
         mu.unlock();
         takeoff.unlock();
 
-        if(exit) {
+        if (exit) {
             break;
         }
     }
 }
 
 int main() {
-
     Airport airport1;
-    airport1.populateHanger(4);
-    airport1.populateFlying(2);
+    // airport1.populateHanger(4);
+    // airport1.populateFlying(2);
+    airport1.populateAirplanes(3);
     airport1.printStatus();
 
     thread take_off_thread(take_off, ref(airport1));

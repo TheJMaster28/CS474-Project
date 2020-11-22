@@ -2,13 +2,13 @@
 // This file holds the airfield and aircraft classes
 
 // Libraries
+#include <time.h>
+
+#include <cstdlib>
 #include <queue>
 #include <random>
 #include <string>
-#include <time.h>
-#include <cstdlib>
-
-
+#include <vector>
 
 using namespace std;
 
@@ -73,7 +73,7 @@ class Airport {
     // Add 'n' number of aircrafts to the Hanger queue
     void populateHanger(int n) {
         //variable randomization for landings
-        srand (time(NULL));
+        srand(time(NULL));
         int landNum = rand() % 5 + 1;
 
         // Airplane object initialization
@@ -85,7 +85,7 @@ class Airport {
     // Add 'n' number of aircrafts to the Flying queue
     void populateFlying(int n) {
         //variable randomization for landings
-        srand (time(NULL));
+        srand(time(NULL));
         int landNum = rand() % 5 + 1;
 
         // Airplane object initialization
@@ -98,6 +98,24 @@ class Airport {
         // Randomizaiton Seed
         srand(time(NULL));
 
+        // have vector to keep track of used IDs
+        // vector<Airplane> AirplaneIDs;
+
+        for (int i = 1; i <= n; i++) {
+            // randomize number of times a plane can land
+            int landNum = rand() % 5 + 1;
+            // randomize planes flying time
+            int airtime = rand() % 3 + 1;
+            // randomize plane to go into FLying or Hanger
+            int HangerOrFlying = rand() % 100 + 1;
+            HangerOrFlying = HangerOrFlying % 2;
+            Airplane a = Airplane(i, 5, airtime, landNum);
+            if (HangerOrFlying) {
+                Hanger.push(a);
+            } else {
+                Flying.push(a);
+            }
+        }
     }
 
     // Airplane landing method
