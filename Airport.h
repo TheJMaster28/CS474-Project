@@ -1,5 +1,5 @@
 // Airport.h
-// This file holds the airfield and aircraft classes
+// This file holds the airport and airplane classes
 
 // Libraries
 #include <time.h>

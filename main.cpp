@@ -1,3 +1,9 @@
+// Airport Project
+// Authors:David Duran, Brandon Ihlien, Jeffrey Lansford, Yarely Ogaz
+// Main program file to simulate the airport problem detailed in README file
+// Input is required for number of planes to populate airport through command line
+// Output is printed status of the airport and status of the airplane that is either taking off or landing
+
 // Libraries
 #include <chrono>
 #include <iostream>
@@ -14,6 +20,7 @@ mutex mu;
 mutex land;
 mutex takeoff;
 
+// thread function to have airplanes take off from airport queue Hanger
 void take_off(Airport &a) {
     bool exit = false;
     while (true) {
@@ -55,6 +62,7 @@ void take_off(Airport &a) {
     }
 }
 
+// thread function to have airplanes land from airport queue Flying
 void landing(Airport &a) {
     bool exit = false;
     while (true) {
@@ -104,13 +112,21 @@ void landing(Airport &a) {
     }
 }
 
-int main() {
+int main(int argc, char *argv[]) {
     // make global object airport for threads to share
     static Airport airport1;
     cout << "Starting Airport" << endl
          << endl;
     // populate Airport
-    airport1.populateAirplanes(5);
+    int numberOfPlanes;
+    if (argc == 1) {
+        numberOfPlanes = 5;
+    } else {
+        // numberOfPlanes = (int)argv[1] - 48;
+        numberOfPlanes = atoi(argv[1]);
+    }
+
+    airport1.populateAirplanes(numberOfPlanes);
     airport1.printStatus();
     // set mutex to have landing go first
     takeoff.lock();

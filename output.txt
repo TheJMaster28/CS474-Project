@@ -1,0 +1,508 @@
+Starting Airport
+
+Airplanes inside Hanger : 1     Airplanes in the Air : 3    
+
+Airplane ID             : 1     Airplane ID          : 2    
+Airplane Runway Time    : 5     Airplane Runway Time : 5    
+Airplane Flying Time    : 11    Airplane Flying Time : 8    
+Airplane Rounds Left    : 5     Airplane Rounds Left : 2    
+-----------------------------------------------------------------
+                                Airplane ID          : 3    
+                                Airplane Runway Time : 5    
+                                Airplane Flying Time : 11   
+                                Airplane Rounds Left : 3    
+-----------------------------------------------------------------
+                                Airplane ID          : 4    
+                                Airplane Runway Time : 5    
+                                Airplane Flying Time : 6    
+                                Airplane Rounds Left : 4    
+-----------------------------------------------------------------
+
+
+~~~Airplane 2 is flying~~~
+
+
+~~~Airplane 2 is landing~~~
+
+
+Airplanes inside Hanger : 2     Airplanes in the Air : 2    
+
+Airplane ID             : 1     Airplane ID          : 3    
+Airplane Runway Time    : 5     Airplane Runway Time : 5    
+Airplane Flying Time    : 11    Airplane Flying Time : 11   
+Airplane Rounds Left    : 5     Airplane Rounds Left : 3    
+-----------------------------------------------------------------
+Airplane ID             : 2     Airplane ID          : 4    
+Airplane Runway Time    : 5     Airplane Runway Time : 5    
+Airplane Flying Time    : 8     Airplane Flying Time : 6    
+Airplane Rounds Left    : 1     Airplane Rounds Left : 4    
+-----------------------------------------------------------------
+
+
+~~~Airplane 1 is taking off~~~
+
+
+Airplanes inside Hanger : 1     Airplanes in the Air : 3    
+
+Airplane ID             : 2     Airplane ID          : 3    
+Airplane Runway Time    : 5     Airplane Runway Time : 5    
+Airplane Flying Time    : 8     Airplane Flying Time : 11   
+Airplane Rounds Left    : 1     Airplane Rounds Left : 3    
+-----------------------------------------------------------------
+                                Airplane ID          : 4    
+                                Airplane Runway Time : 5    
+                                Airplane Flying Time : 6    
+                                Airplane Rounds Left : 4    
+-----------------------------------------------------------------
+                                Airplane ID          : 1    
+                                Airplane Runway Time : 5    
+                                Airplane Flying Time : 11   
+                                Airplane Rounds Left : 5    
+-----------------------------------------------------------------
+
+
+~~~Airplane 3 is flying~~~
+
+
+~~~Airplane 3 is landing~~~
+
+
+Airplanes inside Hanger : 2     Airplanes in the Air : 2    
+
+Airplane ID             : 2     Airplane ID          : 4    
+Airplane Runway Time    : 5     Airplane Runway Time : 5    
+Airplane Flying Time    : 8     Airplane Flying Time : 6    
+Airplane Rounds Left    : 1     Airplane Rounds Left : 4    
+-----------------------------------------------------------------
+Airplane ID             : 3     Airplane ID          : 1    
+Airplane Runway Time    : 5     Airplane Runway Time : 5    
+Airplane Flying Time    : 11    Airplane Flying Time : 11   
+Airplane Rounds Left    : 2     Airplane Rounds Left : 5    
+-----------------------------------------------------------------
+
+
+~~~Airplane 2 is taking off~~~
+
+
+Airplanes inside Hanger : 1     Airplanes in the Air : 3    
+
+Airplane ID             : 3     Airplane ID          : 4    
+Airplane Runway Time    : 5     Airplane Runway Time : 5    
+Airplane Flying Time    : 11    Airplane Flying Time : 6    
+Airplane Rounds Left    : 2     Airplane Rounds Left : 4    
+-----------------------------------------------------------------
+                                Airplane ID          : 1    
+                                Airplane Runway Time : 5    
+                                Airplane Flying Time : 11   
+                                Airplane Rounds Left : 5    
+-----------------------------------------------------------------
+                                Airplane ID          : 2    
+                                Airplane Runway Time : 5    
+                                Airplane Flying Time : 8    
+                                Airplane Rounds Left : 1    
+-----------------------------------------------------------------
+
+
+~~~Airplane 4 is flying~~~
+
+
+~~~Airplane 4 is landing~~~
+
+
+Airplanes inside Hanger : 2     Airplanes in the Air : 2    
+
+Airplane ID             : 3     Airplane ID          : 1    
+Airplane Runway Time    : 5     Airplane Runway Time : 5    
+Airplane Flying Time    : 11    Airplane Flying Time : 11   
+Airplane Rounds Left    : 2     Airplane Rounds Left : 5    
+-----------------------------------------------------------------
+Airplane ID             : 4     Airplane ID          : 2    
+Airplane Runway Time    : 5     Airplane Runway Time : 5    
+Airplane Flying Time    : 6     Airplane Flying Time : 8    
+Airplane Rounds Left    : 3     Airplane Rounds Left : 1    
+-----------------------------------------------------------------
+
+
+~~~Airplane 3 is taking off~~~
+
+
+Airplanes inside Hanger : 1     Airplanes in the Air : 3    
+
+Airplane ID             : 4     Airplane ID          : 1    
+Airplane Runway Time    : 5     Airplane Runway Time : 5    
+Airplane Flying Time    : 6     Airplane Flying Time : 11   
+Airplane Rounds Left    : 3     Airplane Rounds Left : 5    
+-----------------------------------------------------------------
+                                Airplane ID          : 2    
+                                Airplane Runway Time : 5    
+                                Airplane Flying Time : 8    
+                                Airplane Rounds Left : 1    
+-----------------------------------------------------------------
+                                Airplane ID          : 3    
+                                Airplane Runway Time : 5    
+                                Airplane Flying Time : 11   
+                                Airplane Rounds Left : 2    
+-----------------------------------------------------------------
+
+
+~~~Airplane 1 is flying~~~
+
+
+~~~Airplane 1 is landing~~~
+
+
+Airplanes inside Hanger : 2     Airplanes in the Air : 2    
+
+Airplane ID             : 4     Airplane ID          : 2    
+Airplane Runway Time    : 5     Airplane Runway Time : 5    
+Airplane Flying Time    : 6     Airplane Flying Time : 8    
+Airplane Rounds Left    : 3     Airplane Rounds Left : 1    
+-----------------------------------------------------------------
+Airplane ID             : 1     Airplane ID          : 3    
+Airplane Runway Time    : 5     Airplane Runway Time : 5    
+Airplane Flying Time    : 11    Airplane Flying Time : 11   
+Airplane Rounds Left    : 4     Airplane Rounds Left : 2    
+-----------------------------------------------------------------
+
+
+~~~Airplane 4 is taking off~~~
+
+
+Airplanes inside Hanger : 1     Airplanes in the Air : 3    
+
+Airplane ID             : 1     Airplane ID          : 2    
+Airplane Runway Time    : 5     Airplane Runway Time : 5    
+Airplane Flying Time    : 11    Airplane Flying Time : 8    
+Airplane Rounds Left    : 4     Airplane Rounds Left : 1    
+-----------------------------------------------------------------
+                                Airplane ID          : 3    
+                                Airplane Runway Time : 5    
+                                Airplane Flying Time : 11   
+                                Airplane Rounds Left : 2    
+-----------------------------------------------------------------
+                                Airplane ID          : 4    
+                                Airplane Runway Time : 5    
+                                Airplane Flying Time : 6    
+                                Airplane Rounds Left : 3    
+-----------------------------------------------------------------
+
+
+~~~Airplane 2 is flying~~~
+
+
+Airplane 2 is grounded
+
+
+
+~~~Airplane 2 is landing~~~
+
+
+Airplanes inside Hanger : 1     Airplanes in the Air : 2    
+
+Airplane ID             : 1     Airplane ID          : 3    
+Airplane Runway Time    : 5     Airplane Runway Time : 5    
+Airplane Flying Time    : 11    Airplane Flying Time : 11   
+Airplane Rounds Left    : 4     Airplane Rounds Left : 2    
+-----------------------------------------------------------------
+                                Airplane ID          : 4    
+                                Airplane Runway Time : 5    
+                                Airplane Flying Time : 6    
+                                Airplane Rounds Left : 3    
+-----------------------------------------------------------------
+
+
+~~~Airplane 1 is taking off~~~
+
+
+Airplanes inside Hanger : 0     Airplanes in the Air : 3    
+
+                                Airplane ID          : 3    
+                                Airplane Runway Time : 5    
+                                Airplane Flying Time : 11   
+                                Airplane Rounds Left : 2    
+-----------------------------------------------------------------
+                                Airplane ID          : 4    
+                                Airplane Runway Time : 5    
+                                Airplane Flying Time : 6    
+                                Airplane Rounds Left : 3    
+-----------------------------------------------------------------
+                                Airplane ID          : 1    
+                                Airplane Runway Time : 5    
+                                Airplane Flying Time : 11   
+                                Airplane Rounds Left : 4    
+-----------------------------------------------------------------
+
+
+~~~Airplane 3 is flying~~~
+
+
+~~~Airplane 3 is landing~~~
+
+
+Airplanes inside Hanger : 1     Airplanes in the Air : 2    
+
+Airplane ID             : 3     Airplane ID          : 4    
+Airplane Runway Time    : 5     Airplane Runway Time : 5    
+Airplane Flying Time    : 11    Airplane Flying Time : 6    
+Airplane Rounds Left    : 1     Airplane Rounds Left : 3    
+-----------------------------------------------------------------
+                                Airplane ID          : 1    
+                                Airplane Runway Time : 5    
+                                Airplane Flying Time : 11   
+                                Airplane Rounds Left : 4    
+-----------------------------------------------------------------
+
+
+~~~Airplane 3 is taking off~~~
+
+
+Airplanes inside Hanger : 0     Airplanes in the Air : 3    
+
+                                Airplane ID          : 4    
+                                Airplane Runway Time : 5    
+                                Airplane Flying Time : 6    
+                                Airplane Rounds Left : 3    
+-----------------------------------------------------------------
+                                Airplane ID          : 1    
+                                Airplane Runway Time : 5    
+                                Airplane Flying Time : 11   
+                                Airplane Rounds Left : 4    
+-----------------------------------------------------------------
+                                Airplane ID          : 3    
+                                Airplane Runway Time : 5    
+                                Airplane Flying Time : 11   
+                                Airplane Rounds Left : 1    
+-----------------------------------------------------------------
+
+
+~~~Airplane 4 is flying~~~
+
+
+~~~Airplane 4 is landing~~~
+
+
+Airplanes inside Hanger : 1     Airplanes in the Air : 2    
+
+Airplane ID             : 4     Airplane ID          : 1    
+Airplane Runway Time    : 5     Airplane Runway Time : 5    
+Airplane Flying Time    : 6     Airplane Flying Time : 11   
+Airplane Rounds Left    : 2     Airplane Rounds Left : 4    
+-----------------------------------------------------------------
+                                Airplane ID          : 3    
+                                Airplane Runway Time : 5    
+                                Airplane Flying Time : 11   
+                                Airplane Rounds Left : 1    
+-----------------------------------------------------------------
+
+
+~~~Airplane 4 is taking off~~~
+
+
+Airplanes inside Hanger : 0     Airplanes in the Air : 3    
+
+                                Airplane ID          : 1    
+                                Airplane Runway Time : 5    
+                                Airplane Flying Time : 11   
+                                Airplane Rounds Left : 4    
+-----------------------------------------------------------------
+                                Airplane ID          : 3    
+                                Airplane Runway Time : 5    
+                                Airplane Flying Time : 11   
+                                Airplane Rounds Left : 1    
+-----------------------------------------------------------------
+                                Airplane ID          : 4    
+                                Airplane Runway Time : 5    
+                                Airplane Flying Time : 6    
+                                Airplane Rounds Left : 2    
+-----------------------------------------------------------------
+
+
+~~~Airplane 1 is flying~~~
+
+
+~~~Airplane 1 is landing~~~
+
+
+Airplanes inside Hanger : 1     Airplanes in the Air : 2    
+
+Airplane ID             : 1     Airplane ID          : 3    
+Airplane Runway Time    : 5     Airplane Runway Time : 5    
+Airplane Flying Time    : 11    Airplane Flying Time : 11   
+Airplane Rounds Left    : 3     Airplane Rounds Left : 1    
+-----------------------------------------------------------------
+                                Airplane ID          : 4    
+                                Airplane Runway Time : 5    
+                                Airplane Flying Time : 6    
+                                Airplane Rounds Left : 2    
+-----------------------------------------------------------------
+
+
+~~~Airplane 1 is taking off~~~
+
+
+Airplanes inside Hanger : 0     Airplanes in the Air : 3    
+
+                                Airplane ID          : 3    
+                                Airplane Runway Time : 5    
+                                Airplane Flying Time : 11   
+                                Airplane Rounds Left : 1    
+-----------------------------------------------------------------
+                                Airplane ID          : 4    
+                                Airplane Runway Time : 5    
+                                Airplane Flying Time : 6    
+                                Airplane Rounds Left : 2    
+-----------------------------------------------------------------
+                                Airplane ID          : 1    
+                                Airplane Runway Time : 5    
+                                Airplane Flying Time : 11   
+                                Airplane Rounds Left : 3    
+-----------------------------------------------------------------
+
+
+~~~Airplane 3 is flying~~~
+
+
+Airplane 3 is grounded
+
+
+
+~~~Airplane 3 is landing~~~
+
+
+Airplanes inside Hanger : 0     Airplanes in the Air : 2    
+
+                                Airplane ID          : 4    
+                                Airplane Runway Time : 5    
+                                Airplane Flying Time : 6    
+                                Airplane Rounds Left : 2    
+-----------------------------------------------------------------
+                                Airplane ID          : 1    
+                                Airplane Runway Time : 5    
+                                Airplane Flying Time : 11   
+                                Airplane Rounds Left : 3    
+-----------------------------------------------------------------
+
+
+~~~Airplane 4 is flying~~~
+
+
+~~~Airplane 4 is landing~~~
+
+
+Airplanes inside Hanger : 1     Airplanes in the Air : 1    
+
+Airplane ID             : 4     Airplane ID          : 1    
+Airplane Runway Time    : 5     Airplane Runway Time : 5    
+Airplane Flying Time    : 6     Airplane Flying Time : 11   
+Airplane Rounds Left    : 1     Airplane Rounds Left : 3    
+-----------------------------------------------------------------
+
+
+~~~Airplane 4 is taking off~~~
+
+
+Airplanes inside Hanger : 0     Airplanes in the Air : 2    
+
+                                Airplane ID          : 1    
+                                Airplane Runway Time : 5    
+                                Airplane Flying Time : 11   
+                                Airplane Rounds Left : 3    
+-----------------------------------------------------------------
+                                Airplane ID          : 4    
+                                Airplane Runway Time : 5    
+                                Airplane Flying Time : 6    
+                                Airplane Rounds Left : 1    
+-----------------------------------------------------------------
+
+
+~~~Airplane 1 is flying~~~
+
+
+~~~Airplane 1 is landing~~~
+
+
+Airplanes inside Hanger : 1     Airplanes in the Air : 1    
+
+Airplane ID             : 1     Airplane ID          : 4    
+Airplane Runway Time    : 5     Airplane Runway Time : 5    
+Airplane Flying Time    : 11    Airplane Flying Time : 6    
+Airplane Rounds Left    : 2     Airplane Rounds Left : 1    
+-----------------------------------------------------------------
+
+
+~~~Airplane 1 is taking off~~~
+
+
+Airplanes inside Hanger : 0     Airplanes in the Air : 2    
+
+                                Airplane ID          : 4    
+                                Airplane Runway Time : 5    
+                                Airplane Flying Time : 6    
+                                Airplane Rounds Left : 1    
+-----------------------------------------------------------------
+                                Airplane ID          : 1    
+                                Airplane Runway Time : 5    
+                                Airplane Flying Time : 11   
+                                Airplane Rounds Left : 2    
+-----------------------------------------------------------------
+
+
+~~~Airplane 4 is flying~~~
+
+
+Airplane 4 is grounded
+
+
+
+~~~Airplane 4 is landing~~~
+
+
+Airplanes inside Hanger : 0     Airplanes in the Air : 1    
+
+                                Airplane ID          : 1    
+                                Airplane Runway Time : 5    
+                                Airplane Flying Time : 11   
+                                Airplane Rounds Left : 2    
+-----------------------------------------------------------------
+
+
+~~~Airplane 1 is flying~~~
+
+
+~~~Airplane 1 is landing~~~
+
+
+Airplanes inside Hanger : 1     Airplanes in the Air : 0    
+
+Airplane ID             : 1    
+Airplane Runway Time    : 5    
+Airplane Flying Time    : 11   
+Airplane Rounds Left    : 1    
+-----------------------------------------------------------------
+
+
+~~~Airplane 1 is taking off~~~
+
+
+Airplanes inside Hanger : 0     Airplanes in the Air : 1    
+
+                                Airplane ID          : 1    
+                                Airplane Runway Time : 5    
+                                Airplane Flying Time : 11   
+                                Airplane Rounds Left : 1    
+-----------------------------------------------------------------
+
+
+~~~Airplane 1 is flying~~~
+
+
+Airplane 1 is grounded
+
+
+
+~~~Airplane 1 is landing~~~
+
+
+Airplanes inside Hanger : 0     Airplanes in the Air : 0    
+
+Done With Airport
