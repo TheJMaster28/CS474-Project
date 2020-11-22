@@ -18,7 +18,7 @@ class Airplane {
    public:
     int ID;
     int runwayTime;
-    int landingTime;
+    int flyingTime;
     int timesTillDone;
 
     // Default constructor
@@ -28,7 +28,7 @@ class Airplane {
     Airplane(int x, int y, int z, int a) {
         ID = x;
         runwayTime = y;
-        landingTime = z;
+        flyingTime = z;
         timesTillDone = a;
     }
 
@@ -40,8 +40,8 @@ class Airplane {
         return runwayTime;
     }
 
-    int getLandingTime() {
-        return landingTime;
+    int getFlyingTime() {
+        return flyingTime;
     }
 
     int getTimesLanded() {
@@ -105,12 +105,12 @@ class Airport {
             // randomize number of times a plane can land
             int landNum = rand() % 5 + 1;
             // randomize planes flying time
-            int airtime = rand() % 3 + 1;
+            int airtime = rand() % 15 + 1;
             // randomize plane to go into FLying or Hanger
             int HangerOrFlying = rand() % 100 + 1;
-            HangerOrFlying = HangerOrFlying % 2;
+            // HangerOrFlying = HangerOrFlying % 2;
             Airplane a = Airplane(i, 5, airtime, landNum);
-            if (HangerOrFlying) {
+            if (HangerOrFlying <= 50) {
                 Hanger.push(a);
             } else {
                 Flying.push(a);
@@ -126,6 +126,12 @@ class Airport {
         runWay.timesTillDone--;
         if (runWay.timesTillDone != 0) {
             Hanger.push(runWay);
+        } else {
+            cout << endl
+                 << endl
+                 << "Airplane " << runWay.getAirplaneID() << " is grounded" << endl
+                 << endl;
+            ;
         }
     }
 
@@ -157,7 +163,7 @@ class Airport {
     bool checkIfPlaneInAirIsLanding() {
         Airplane planeInAir = Flying.front();
         Airplane planeAboutToTakeOff = Hanger.front();
-        if (planeInAir.getLandingTime() <= planeAboutToTakeOff.getRunwayTime()) {
+        if (planeInAir.getFlyingTime() <= planeAboutToTakeOff.getRunwayTime()) {
             return true;
         }
         return false;
@@ -171,46 +177,61 @@ class Airport {
         tempFlying = Flying;
 
         // Printing how many airplanes are in the hanger and flying
-        cout << "Airplanes inside the Hanger: " << tempHanger.size() << "             "
-             << "Airplanes in the Air: " << tempFlying.size() << "\n\n";
+        // cout << "Airplanes inside the Hanger: " << tempHanger.size() << "             "
+        //      << "Airplanes in the Air: " << tempFlying.size() << "\n\n";
+
+        printf("Airplanes inside Hanger : %-5d Airplanes in the Air : %-5d\n\n", (int)tempHanger.size(), (int)tempFlying.size());
         while (!tempHanger.empty() || !tempFlying.empty()) {
             planeInfoH = tempHanger.front();
             planeInfoF = tempFlying.front();
 
             // If both queues are not empty
             if (!tempHanger.empty() && !tempFlying.empty()) {
-                cout << "Airplane ID: " << planeInfoH.ID << "                             "
-                     << "Airplane ID: " << planeInfoF.ID << "\n";
-                cout << "Airplane Takeoff Time: " << planeInfoH.runwayTime << "                  "
-                     << "Airplane Takeoff Time: " << planeInfoF.runwayTime << "\n";
-                cout << "Airplane Landing Time: " << planeInfoH.landingTime << "                  "
-                     << "Airplane Landing Time: " << planeInfoF.landingTime << "\n";
-                cout << "Airplane Rounds Left: " << planeInfoH.timesTillDone << "                    "
-                     << "Airplane Rounds Left: " << planeInfoF.timesTillDone << "\n";
-                cout << "----------------------------------------------------------------------------------------------------------------------------------------"
-                     << "\n";
+                printf("Airplane ID             : %-5d Airplane ID          : %-5d\n", planeInfoH.ID, planeInfoF.ID);
+                printf("Airplane Runway Time    : %-5d Airplane Runway Time : %-5d\n", planeInfoH.runwayTime, planeInfoF.runwayTime);
+                printf("Airplane Flying Time    : %-5d Airplane Flying Time : %-5d\n", planeInfoH.flyingTime, planeInfoF.flyingTime);
+                printf("Airplane Rounds Left    : %-5d Airplane Rounds Left : %-5d\n", planeInfoH.timesTillDone, planeInfoF.timesTillDone);
+                cout << "-----------------------------------------------------------------"
+                     << endl;
+                // // cout << "Airplane ID: " << planeInfoH.ID << "\t"
+                // //      << "Airplane ID: " << planeInfoF.ID << "\n";
+                // cout << "Airplane Runway Time: " << planeInfoH.runwayTime << "\t"
+                //      << "Airplane Runway Time: " << planeInfoF.runwayTime << "\n";
+                // cout << "Airplane Flying Time: " << planeInfoH.flyingTime << "\t"
+                //      << "Airplane Flying Time: " << planeInfoF.flyingTime << "\n";
+                // cout << "Airplane Rounds Left: " << planeInfoH.timesTillDone << "\t"
+                //      << "Airplane Rounds Left: " << planeInfoF.timesTillDone << "\n";
             }
             // If the hanger queue is empty
             else if (tempHanger.empty()) {
-                cout << "                                           "
-                     << "Airplane ID: " << planeInfoF.ID << "\n";
-                cout << "                                           "
-                     << "Airplane Takeoff Time: " << planeInfoF.runwayTime << "\n";
-                cout << "                                           "
-                     << "Airplane Landing Time: " << planeInfoF.landingTime << "\n";
-                cout << "                                           "
-                     << "Airplane Rounds Left: " << planeInfoF.timesTillDone << "\n";
-                cout << "----------------------------------------------------------------------------------------------------------------------------------------"
-                     << "\n";
+                printf("                                Airplane ID          : %-5d\n", planeInfoF.ID);
+                printf("                                Airplane Runway Time : %-5d\n", planeInfoF.runwayTime);
+                printf("                                Airplane Flying Time : %-5d\n", planeInfoF.flyingTime);
+                printf("                                Airplane Rounds Left : %-5d\n", planeInfoF.timesTillDone);
+                cout << "-----------------------------------------------------------------"
+                     << endl;
+                // cout << "\t"
+                //      << "Airplane ID: " << planeInfoF.ID << "\n";
+                // cout << "\t"
+                //      << "Airplane Runway Time: " << planeInfoF.runwayTime << "\n";
+                // cout << "\t"
+                //      << "Airplane Flying Time: " << planeInfoF.flyingTime << "\n";
+                // cout << "\t"
+                //      << "Airplane Rounds Left: " << planeInfoF.timesTillDone << "\n";
             }
             // If flying queue is empty
             else {
-                cout << "Airplane ID: " << planeInfoH.ID << "\n";
-                cout << "Airplane Takeoff Time: " << planeInfoH.runwayTime << "\n";
-                cout << "Airplane Landing Time: " << planeInfoH.landingTime << "\n";
-                cout << "Airplane Rounds Left: " << planeInfoH.timesTillDone << "\n";
-                cout << "----------------------------------------------------------------------------------------------------------------------------------------"
-                     << "\n";
+                // cout << "Airplane ID: " << planeInfoH.ID << "\n";
+                // cout << "Airplane Runway Time: " << planeInfoH.runwayTime << "\n";
+                // cout << "Airplane Flying Time: " << planeInfoH.flyingTime << "\n";
+                // cout << "Airplane Rounds Left: " << planeInfoH.timesTillDone << "\n";
+
+                printf("Airplane ID             : %-5d\n", planeInfoH.ID);
+                printf("Airplane Runway Time    : %-5d\n", planeInfoH.runwayTime);
+                printf("Airplane Flying Time    : %-5d\n", planeInfoH.flyingTime);
+                printf("Airplane Rounds Left    : %-5d\n", planeInfoH.timesTillDone);
+                cout << "-----------------------------------------------------------------"
+                     << endl;
             }
 
             if (!tempHanger.empty()) tempHanger.pop();

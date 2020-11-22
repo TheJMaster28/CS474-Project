@@ -26,6 +26,7 @@ void take_off(Airport &a) {
             cout << endl
                  << endl
                  << "~~~Airplane " << a.runWay.getAirplaneID() << " is taking off~~~" << endl
+                 << endl
                  << endl;
             // have thread wait in milliseconds for plane takeing off
             chrono::seconds timespan(a.runWay.getRunwayTime());
@@ -53,6 +54,13 @@ void landing(Airport &a) {
         land.lock();
         mu.lock();
 
+        // check flying time
+        cout << endl
+             << endl
+             << "~~~Airplane " << a.Flying.front().getAirplaneID() << " is flying~~~" << endl;
+        chrono::seconds timespan(a.Flying.front().getFlyingTime());
+        this_thread::sleep_for(timespan);
+
         // crit section
         //checks if there is a plane in the air
         if (a.checkAnyPlanesInAir()) {
@@ -61,6 +69,7 @@ void landing(Airport &a) {
             cout << endl
                  << endl
                  << "~~~Airplane " << a.runWay.getAirplaneID() << " is landing~~~" << endl
+                 << endl
                  << endl;
             // Runway time
             chrono::seconds timespan(a.runWay.getRunwayTime());
@@ -86,9 +95,9 @@ int main() {
     Airport airport1;
     // airport1.populateHanger(4);
     // airport1.populateFlying(2);
-    airport1.populateAirplanes(3);
+    airport1.populateAirplanes(10);
     airport1.printStatus();
-
+    takeoff.lock();
     thread take_off_thread(take_off, ref(airport1));
     thread landing_thread(landing, ref(airport1));
 
