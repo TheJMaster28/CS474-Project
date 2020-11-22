@@ -5,6 +5,10 @@
 #include <queue>
 #include <random>
 #include <string>
+#include <time.h>
+#include <cstdlib>
+
+
 
 using namespace std;
 
@@ -13,7 +17,7 @@ class Airplane {
     // Public variables
    public:
     int ID;
-    int takeoffTime;
+    int runwayTime;
     int landingTime;
     int timesTillDone;
 
@@ -23,7 +27,7 @@ class Airplane {
     // Parameterized constructor
     Airplane(int x, int y, int z, int a) {
         ID = x;
-        takeoffTime = y;
+        runwayTime = y;
         landingTime = z;
         timesTillDone = a;
     }
@@ -32,8 +36,8 @@ class Airplane {
         return ID;
     }
 
-    int getTakeoffTime() {
-        return takeoffTime;
+    int getRunwayTime() {
+        return runwayTime;
     }
 
     int getLandingTime() {
@@ -68,16 +72,32 @@ class Airport {
 
     // Add 'n' number of aircrafts to the Hanger queue
     void populateHanger(int n) {
+        //variable randomization for landings
+        srand (time(NULL));
+        int landNum = rand() % 5 + 1;
+
+        // Airplane object initialization
         for (int i = 1; i <= n; i++) {
-            Hanger.push(Airplane(i, i + 10, i + 20, 1));
+            Hanger.push(Airplane(i, 5, i + 20, landNum));
         }
     }
 
     // Add 'n' number of aircrafts to the Flying queue
     void populateFlying(int n) {
+        //variable randomization for landings
+        srand (time(NULL));
+        int landNum = rand() % 5 + 1;
+
+        // Airplane object initialization
         for (int i = 1; i <= n; i++) {
-            Flying.push(Airplane(i, i + 30, i + 40, 1));
+            Flying.push(Airplane(i, 5, i + 40, landNum));
         }
+    }
+
+    void populateAirplanes(int n) {
+        // Randomizaiton Seed
+        srand(time(NULL));
+
     }
 
     // Airplane landing method
@@ -119,7 +139,7 @@ class Airport {
     bool checkIfPlaneInAirIsLanding() {
         Airplane planeInAir = Flying.front();
         Airplane planeAboutToTakeOff = Hanger.front();
-        if (planeInAir.getLandingTime() <= planeAboutToTakeOff.getTakeoffTime()) {
+        if (planeInAir.getLandingTime() <= planeAboutToTakeOff.getRunwayTime()) {
             return true;
         }
         return false;
@@ -143,8 +163,8 @@ class Airport {
             if (!tempHanger.empty() && !tempFlying.empty()) {
                 cout << "Airplane ID: " << planeInfoH.ID << "                             "
                      << "Airplane ID: " << planeInfoF.ID << "\n";
-                cout << "Airplane Takeoff Time: " << planeInfoH.takeoffTime << "                  "
-                     << "Airplane Takeoff Time: " << planeInfoF.takeoffTime << "\n";
+                cout << "Airplane Takeoff Time: " << planeInfoH.runwayTime << "                  "
+                     << "Airplane Takeoff Time: " << planeInfoF.runwayTime << "\n";
                 cout << "Airplane Landing Time: " << planeInfoH.landingTime << "                  "
                      << "Airplane Landing Time: " << planeInfoF.landingTime << "\n";
                 cout << "Airplane Rounds Left: " << planeInfoH.timesTillDone << "                    "
@@ -157,7 +177,7 @@ class Airport {
                 cout << "                                           "
                      << "Airplane ID: " << planeInfoF.ID << "\n";
                 cout << "                                           "
-                     << "Airplane Takeoff Time: " << planeInfoF.takeoffTime << "\n";
+                     << "Airplane Takeoff Time: " << planeInfoF.runwayTime << "\n";
                 cout << "                                           "
                      << "Airplane Landing Time: " << planeInfoF.landingTime << "\n";
                 cout << "                                           "
@@ -168,7 +188,7 @@ class Airport {
             // If flying queue is empty
             else {
                 cout << "Airplane ID: " << planeInfoH.ID << "\n";
-                cout << "Airplane Takeoff Time: " << planeInfoH.takeoffTime << "\n";
+                cout << "Airplane Takeoff Time: " << planeInfoH.runwayTime << "\n";
                 cout << "Airplane Landing Time: " << planeInfoH.landingTime << "\n";
                 cout << "Airplane Rounds Left: " << planeInfoH.timesTillDone << "\n";
                 cout << "----------------------------------------------------------------------------------------------------------------------------------------"
