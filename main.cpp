@@ -107,6 +107,8 @@ void landing(Airport &a) {
 int main() {
     // make global object airport for threads to share
     static Airport airport1;
+    cout << "Starting Airport" << endl
+         << endl;
     // populate Airport
     airport1.populateAirplanes(5);
     airport1.printStatus();
